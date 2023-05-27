@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LineItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,10 @@ Route::controller(ProductController::class)->group(function(){
         Route::get('/product/{id}','show')->name('show');
     });
 });
+
+Route::controller(LineItemController::class)->group(function(){
+    Route::name('line_item.')->group(function(){
+        Route::post('/line_item','create')->name('create');
+    });
+});
+

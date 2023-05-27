@@ -10,7 +10,7 @@
 <body>
     <nav class="navbar navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('product.index') }}">TOP</a>
+            <a class="navbar-brand" href="{{ route('product.index') }}">ホーム</a>
             <a class="fas fa-shopping-cart" href="#"></a>
         </div>
     </nav>
