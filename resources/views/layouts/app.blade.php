@@ -11,7 +11,7 @@
     <nav class="navbar navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="{{ route('product.index') }}">ホーム</a>
-            <a class="fas fa-shopping-cart" href="#"></a>
+            <a class="fas fa-shopping-cart" href="{{route('cart.index')}}"></a>
         </div>
     </nav>
 
