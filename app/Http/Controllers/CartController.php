@@ -16,6 +16,7 @@ class CartController extends Controller
      */
     public function index()
     {
+        //セッション情報取得
         $cart_id = Session::get('cart');
         $cart = Cart::find($cart_id);
 
@@ -35,9 +36,44 @@ class CartController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function checkout()
     {
-        //
+        //セッション情報取得
+        $cart_id = Session::get('cart');
+        $cart = Cart::find($cart_id);
+
+        $line_items = [];
+
+        foreach ($cart->products as $product){
+            $line_item = [
+                'price_data' => [
+                    'currency' => 'jpy',
+                    'unit_amount' => $product->price,
+                    'product_data' =>[
+                        'name' => $product->name,
+                        'description' => $product->discription, 
+                    ],
+                ],
+                'quantity' => $product->pivot->quantity,
+            ];
+            array_push($line_items,$line_item);
+        }
+
+        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET_KEY'));
+
+        $session = \Stripe\Checkout\Session::create([
+            'payment_method_types' => ['card'],
+            'line_items'           => [$line_items],
+            'success_url'          => route('product.index'),
+            'cancel_url'           => route('cart.index'),
+            'mode'                 => 'payment',
+        ]);
+
+        return view('cart.checkout',[
+            'session'   => $session,
+            'publicKey' => env('STRIPE_PUBLIC_KEY')
+        ]);
+
     }
 
     /**
