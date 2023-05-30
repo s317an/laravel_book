@@ -92,6 +92,7 @@ class CartController extends Controller
         $cart_id = Session::get('cart');
         LineItem:: where('cart_id',$cart_id)->delete();
 
+        session()->flash('success_message','購入が完了しました。ありがとうございます！');
         return redirect(route('product.index'));
     }
 

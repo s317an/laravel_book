@@ -9,6 +9,11 @@
     <div class="cart__title">
         ショッピングカート
     </div>
+    @if (session('danger_message'))
+        <div class="alert alert-danger" role="alert">
+            {{session('danger_message')}}
+        </div>
+    @endif
     <br>
     @if(count($line_items) > 0)
     <div class="cart-wrapper">

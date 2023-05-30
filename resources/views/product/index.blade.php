@@ -6,12 +6,17 @@
 
 
 @section('content')
+@if(session('success_message'))
+    <div class="alert alert-success" role="alert">
+        {{session('success_message')}}
+    </div>
+@endif
     <div class="jumbotron top-img">
-        <p class="text-center text-white top-img-text">{{ config('app.name',    'Laravel')}}</p>
+        <p class="text-center text-white top-img-text">Laravel_clothes</p>
     </div>
     <div class="container">
         <div class="top__title text-center">
-            All Products
+            商 品 一 覧
         </div>
         <div class="row">
             @foreach ($products as $product)

@@ -24,12 +24,15 @@ class LineItemController extends Controller
                 'quantity'   => $request->input('quantity'),
             ]);
         }
+
+        session()->flash('success_message','カートに追加しました!');
         return redirect(route('product.index'));
     }
 
     public function delete(Request $request){
         LineItem::destroy($request->input('id'));
 
+        session()->flash('danger_message','商品を削除しました');
         return redirect(route('cart.index'));
     }
 }
