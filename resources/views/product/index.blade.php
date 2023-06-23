@@ -12,7 +12,7 @@
     </div>
 @endif
     <div class="jumbotron top-img">
-        <p class="text-center text-white top-img-text">Laravel_clothes</p>
+        <p class="text-center text-white top-img-text">Laravel_book</p>
     </div>
     <div class="container">
         <div class="top__title text-center">
