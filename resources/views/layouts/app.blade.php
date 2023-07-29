@@ -7,15 +7,22 @@
     @vite('resources/sass/app.scss')
     <title>@yield('title')|Laravel</title>
 </head>
+<header>
+    <div class="container flex">
+        <a class="logo" href="{{ route('product.index') }}"><span>laravel</span> market</a>
+        <nav>
+            <ul class="header-top flex">
+                <a href="#">アカウント </a>
+                <a class="fas fa-shopping-cart" href="{{route('cart.index')}}"></a>
+            </ul>
+        </nav>
+    </div>
+</header>
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand" href="{{ route('product.index') }}">ホーム</a>
-            <a class="fas fa-shopping-cart" href="{{route('cart.index')}}"></a>
-        </div>
-    </nav>
 
 @yield('content')
+
+@yield('book')
 
 </body>
 </html>

@@ -1,8 +1,57 @@
+html{
+    width: 100%;
+    max-width: 2545px;
+}
+
+
+body {
+        width: 90%;
+        max-width: 1120px;
+        margin: 0% auto;
+
+}
+
+.container{
+    
+        width: 90%;
+        max-width: 1120px;
+        margin: 0% auto;
+    
+}
+
+.flex{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+header {
+    padding: 27px 0;
+}
+
+.logo{
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.1em;
+}
+
+.header-top{
+    color: #80BA4A;
+}
+
+
+.header-top a{
+    margin-left: 40px;
+    font-size: 16px;
+}
+
+
 .top {
     &-img {
         background-image: url("../../public/images/top.jpg");
         background-size: cover;
-        height: 400px;
+        height: 300px;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -19,6 +68,7 @@
         padding: 20px 0 40px;
     }
 }
+
 
 .card {
     &-product-name {
